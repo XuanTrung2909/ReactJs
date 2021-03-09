@@ -1,7 +1,7 @@
 {
   "name": "reactjs-xuantrung",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -34,5 +34,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "learn-react",
+  "main": "index.js",
+  "repository": "https://github.com/XuanTrung2909/ReactJs.git",
+  "author": "XuanTrung2909 <trung.nx290989@gmail.com>",
+  "license": "MIT"
 }
