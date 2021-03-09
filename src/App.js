@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import DemoFunction from './Components/DemoComponents/DemoFunction';
-import DemoClass from './Components/DemoComponents/DemoClass';
 
 
-import Databinding from './Databinding/Databinding';
+import Header from './Components/BaiTapThucHanhLayout/BT3Header';
+import Content from './Components/BaiTapThucHanhLayout/BT3Content';
+import Footer from './Components/BaiTapThucHanhLayout/BT3Footer';
 
 function App() {
   return (
     <div className="App">
-      
+      <Header />
+      <Content />
 
-      <Databinding />
+      <Footer />
+
     </div>
   );
 }
