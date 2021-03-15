@@ -9,6 +9,9 @@ import Styles from './Components/Style/Styles';
 import HandleEvent from './HandleEvent/HandleEvent';
 import StateDemo from './StateDemo/StateDemo';
 import BaiTapChonXe from './StateDemo/BaiTapChonXe';
+import RenderWithMap from './RenderWithMap/RenderWithMap';
+import RenderPhim from './RenderWithMap/RenderPhim';
+import DanhSachSanPhamProps from './Props/DemoProps/DanhSachSanPhamProps';
 
 function App() {
   return (
@@ -20,7 +23,12 @@ function App() {
 
       {/* <StateDemo /> */}
 
-      <BaiTapChonXe />
+      {/* <BaiTapChonXe /> */}
+      {/* <RenderWithMap /> */}
+
+      {/* <RenderPhim /> */}
+
+      <DanhSachSanPhamProps />
 
     </div>
   );
