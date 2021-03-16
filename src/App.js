@@ -12,6 +12,8 @@ import BaiTapChonXe from './StateDemo/BaiTapChonXe';
 import RenderWithMap from './RenderWithMap/RenderWithMap';
 import RenderPhim from './RenderWithMap/RenderPhim';
 import DanhSachSanPhamProps from './Props/DemoProps/DanhSachSanPhamProps';
+import Product from './Props/BaiTapProps/Product';
+import Carts from './Props/BaiTapProps/Carts';
 
 function App() {
   return (
@@ -28,7 +30,10 @@ function App() {
 
       {/* <RenderPhim /> */}
 
-      <DanhSachSanPhamProps />
+      {/* <DanhSachSanPhamProps /> */}
+
+      <Product />
+
 
     </div>
   );
