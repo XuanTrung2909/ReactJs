@@ -2,20 +2,18 @@ import React, { Component } from 'react'
 
 export default class Carts extends Component {
 
-
     renderGioHang = () => {
-        let { gioHang } = this.props;
-        return gioHang.map((product, index) => {
+        let {gioHang} = this.props;
+        return gioHang.map((sp, index) => {
             return (
                 <tr key={index}>
-                    <td>{product.maSP}</td>
-                    <td>{product.tenSP}</td>
-                    <td><img src={product.hinhAnh} width="50" alt={product.tenSP} /></td>
-                    <td>{product.gia}</td>
-                    <td>{product.soLuong}</td>
-                    <td>{product.gia * product.soLuong}</td>
-
-                    <td><button className="btn btn-danger">Xoa</button></td>
+                    <td>{sp.maSP}</td>
+                    <td>{sp.tenSP}</td>
+                    <td><img src={sp.hinhAnh} alt={sp.tenSP} width="30"/></td>
+                    <td>{sp.soLuong}</td>
+                    <td>{sp.giaBan}</td>
+                    <td>{sp.giaBan * sp.soLuong}</td>
+                    <td><button className="btn btn-danger">Xóa</button></td>
                 </tr>
             )
         })
@@ -23,19 +21,20 @@ export default class Carts extends Component {
 
 
     render() {
-
+        
         return (
-            <div className="container">
-                <h3>Gio hang</h3>
+            <div>
+                <h3 className="text-center">GIỎ HÀNG</h3>
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>ma SP</th>
-                            <th>Ten SP</th>
-                            <th>Hinh Anh</th>
-                            <th>don gia</th>
-                            <th>So Luong</th>
-                            <th>Thanh Tien</th>
+                            <th>Mã SP</th>
+                            <th>Tên SP</th>
+                            <th>Hình Ảnh</th>
+                            <th>Số Lượng</th>
+                            <th>Đơn Giá</th>
+                            <th>Thành Tiền</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -14,6 +14,7 @@ import RenderPhim from './RenderWithMap/RenderPhim';
 import DanhSachSanPhamProps from './Props/DemoProps/DanhSachSanPhamProps';
 import Product from './Props/BaiTapProps/Product';
 import Carts from './Props/BaiTapProps/Carts';
+import BTKinh from './Props/BaiTapKinh/BTKinh';
 
 function App() {
   return (
@@ -31,9 +32,9 @@ function App() {
       {/* <RenderPhim /> */}
 
       {/* <DanhSachSanPhamProps /> */}
-
       <Product />
 
+      {/* <BTKinh /> */}
 
     </div>
   );
