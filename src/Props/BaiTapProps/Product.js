@@ -77,7 +77,6 @@ export default class Product extends Component {
         soLuong: 1,
         giaBan: product.giaBan
     }
-    console.log(spGioHang);
     // console.log(spGioHang.giaBan * spGioHang.soLuong);
 
     //tao ra gio hang tam de them san pham
@@ -104,10 +103,42 @@ export default class Product extends Component {
 
   }
 
+  xoaGioHang = (maSP) => {
+
+      let gioHangCapNhat = [...this.state.gioHang];
+      let index = this.state.gioHang.findIndex(spGH => spGH.maSP === maSP);
+      
+      if(index !== -1){
+        gioHangCapNhat.splice(index,1);
+      }
+
+
+      this.setState({
+        gioHang:gioHangCapNhat
+      })
+  }
+
+  tangGiamSL = (maSPGH,tangGiam) => {
+    let gioHangCapNhat = [...this.state.gioHang];
+    let index = gioHangCapNhat.findIndex(sp => sp.maSP === maSPGH);
+    if(tangGiam){
+      gioHangCapNhat[index].soLuong += 1;
+    }else{
+      if(gioHangCapNhat[index].soLuong > 1){
+        gioHangCapNhat[index].soLuong -= 1;
+      }
+    }
+
+    this.setState({
+      gioHang: gioHangCapNhat
+    })
+
+  }
+
   render() {
     return (
       <div className="container">
-        <Carts gioHang = {this.state.gioHang}/>
+        <Carts gioHang = {this.state.gioHang} xoaGioHang={this.xoaGioHang} tangGiamSL={this.tangGiamSL}/>
         <h3 className="text-center py-5">DANH SÁCH SẢN PHẨM</h3>
         <div className="row">
             {this.renderProduct()}
