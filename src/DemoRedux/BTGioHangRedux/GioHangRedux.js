@@ -12,19 +12,26 @@ class GioHangRedux extends Component {
                 <tr key={index}>
                     <td>{spGH.maSP}</td>
                     <td>{spGH.tenSP}</td>
-                    <td><img src={spGH.hinhAnh} alt={spGH.tenSP}/></td>
+                    <td><img src={spGH.hinhAnh} alt={spGH.tenSP} width="30"/></td>
                     <td>{spGH.gia}</td>
-                    <td>{spGH.soLuong}</td>
-                    <td>{spGH.maSP}</td>
-                    <td>{spGH.maSP}</td>
-                    <td>{spGH.maSP}</td>
-                    <td>{spGH.maSP}</td>
+                    <td>
+                        <button className="btn" onClick={() =>{
+                            this.props.tangGiamSL(spGH.maSP, -1)
+                        }}>-</button>
+                            {spGH.soLuong}
+                        <button className="btn" onClick={() => {
+                            this.props.tangGiamSL(spGH.maSP, 1)
+                        }}>+</button>
+                    </td>
+                    <td>{spGH.gia * spGH.soLuong}</td>
+                    <td><button className="btn btn-danger" onClick = {() => {
+                        this.props.xoaGioHang(spGH.maSP)
+                    }}>Xoa</button></td>
                 </tr>
             )
         })
     }
     render() {
-        console.log(this.props);
         return (
             <div>
                 <table className="table">
@@ -58,8 +65,32 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        xoaGioHang : (maSPGHClick) => {
+
+            // console.log(maSPGHClick);
+            const action = {
+                type: 'XOA_GIO_HANG',
+                maSPGHClick
+            }
+
+            dispatch(action);
+        },
+        tangGiamSL : (maSPGHClick, tangGiam) => {
+            dispatch({
+                type: 'TANG_GIAM_SL',
+                maSPGHClick,
+                tangGiam
+            })
+        }
+    }
+}
+
+
+
 
 //Bien doi BTGioHangRedux thanh BaiTapGioHang co ket noi voi redux 
 
 
-export default connect(mapStateToProps)(GioHangRedux)
+export default connect(mapStateToProps, mapDispatchToProps)(GioHangRedux)
