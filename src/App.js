@@ -16,6 +16,7 @@ import Product from './Props/BaiTapProps/Product';
 import Carts from './Props/BaiTapProps/Carts';
 import BTKinh from './Props/BaiTapKinh/BTKinh';
 import BTGHRedux from './DemoRedux/BTGioHangRedux/BTGHRedux';
+import BTDatVe from './DemoRedux/BTDatVe/BTDatVe';
 
 function App() {
   return (
@@ -38,7 +39,9 @@ function App() {
 
       {/* <BTKinh /> */}
 
-      <BTGHRedux />
+      {/* <BTGHRedux /> */}
+
+      <BTDatVe />
 
 
     </div>
