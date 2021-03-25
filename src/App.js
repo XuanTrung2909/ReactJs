@@ -15,7 +15,7 @@ import DanhSachSanPhamProps from './Props/DemoProps/DanhSachSanPhamProps';
 import Product from './Props/BaiTapProps/Product';
 import Carts from './Props/BaiTapProps/Carts';
 import BTKinh from './Props/BaiTapKinh/BTKinh';
-import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
+import BTGHRedux from './DemoRedux/BTGioHangRedux/BTGHRedux';
 
 function App() {
   return (
@@ -38,8 +38,8 @@ function App() {
 
       {/* <BTKinh /> */}
 
+      <BTGHRedux />
 
-      <BTGioHangRedux />
 
     </div>
   );

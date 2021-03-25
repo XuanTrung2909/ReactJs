@@ -1,17 +1,11 @@
-import {combineReducers, createStore} from 'redux'
-import {gioHangReducer} from './reducers/gioHangReducer';
+import {combineReducers} from 'redux';
+import {BTGHProductDetailReducer} from './reducers/BTGHProductDetailReducer';
+import {BTGHCart} from './reducers/BTGHCartReducer'
 
 
+export const rootReducer = combineReducers({
 
+    BTGHProductDetailReducer: BTGHProductDetailReducer,
+    BTGHCart: BTGHCart
 
-const rooReducer = combineReducers({
-    // noi chua toan bo state cua ung dung
-
-    gioHangReducer: gioHangReducer
-
-    
-})
-
-
-
-export const store = createStore(rooReducer);
+});

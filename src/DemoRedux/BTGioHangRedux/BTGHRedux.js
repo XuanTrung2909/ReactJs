@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import GioHangRedux from './GioHangRedux'
-import SanPhamRedux from './SanPhamRedux'
+import BTGHProduct from './BTGHProduct'
+import BTGHProductDetail from './BTGHProductDetail'
 
-
-
-
-export default class BTGioHangRedux extends Component {
-
+export default class BTGHRedux extends Component {
     arrProduct = [
         {
           maSP: 1,
@@ -47,25 +43,10 @@ export default class BTGioHangRedux extends Component {
           hinhAnh: "./img-20210304/img/applephone.jpg",
         },
       ]
-
-    renderSanPham = () => {
-        return this.arrProduct.map((product, index) => {
-            return(
-                <div className="col-4" key={index}>
-                    <SanPhamRedux product={product}/>
-                </div>
-            )
-        })
-    }
     render() {
         return (
-            <div className="container">
-                <h1 className="text-center">Giỏ Hàng</h1>
-                <GioHangRedux />
-                <h1 className="text-center mt-5">Danh Sach San Pham</h1>
-                <div className="row">
-                    {this.renderSanPham()}
-                </div>
+            <div>
+                <BTGHProduct arrProduct = {this.arrProduct}/>
             </div>
         )
     }

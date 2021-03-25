@@ -6,13 +6,27 @@ import reportWebVitals from './reportWebVitals';
 
 // setup redux
 
-import {Provider} from 'react-redux';
-import {store} from './redux/configStore';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+// import file store vao
+
+import {rootReducer} from './redux/configStore';
+
+
+const store = createStore(rootReducer);
+
+
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />,
-  </Provider>,
+
+    <Provider store = {store}>
+
+        <App />,
+    </Provider>,
+
+    
+  
   document.getElementById('root')
 );
 
