@@ -8,11 +8,18 @@ class ThongTinDatVe extends Component {
             return (
                 <tr key={index}>
                     <td>{ghe.soGhe}</td>
-                    <td>{ghe.gia}</td>
-                    <td><button className='btn btn-danger'>X</button></td>
+                    <td>{ghe.gia.toLocaleString()}</td>
+                    <td><button className='btn btn-danger' onClick={() => {
+                        this.props.xoaGheChon(ghe.soGhe)
+                    }}>X</button></td>
                 </tr>
             )
         })
+    }
+    tongTienVe = () => {
+        return this.props.danhSachGheDangDat.reduce((tongTien, ghe, index) => {
+            return tongTien += ghe.gia;
+        }, 0)
     }
     render() {
         return (
@@ -38,6 +45,13 @@ class ThongTinDatVe extends Component {
                     <tbody>
                         {this.renderGheChon()}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Tổng Tiền</td>
+                            <td>{this.tongTienVe().toLocaleString()}</td>
+                            <td><button className='btn btn-success'>Đặt Vé</button></td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         )
@@ -48,4 +62,15 @@ const mapStateToProps = (state) => {
     return { danhSachGheDangDat: state.BTDatVeReducer.danhSachGheDangDat }
 }
 
-export default connect(mapStateToProps, null)(ThongTinDatVe)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        xoaGheChon: (soGhe) => {
+            dispatch({
+                type: 'XOA_GHE_CHON',
+                soGhe
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThongTinDatVe)

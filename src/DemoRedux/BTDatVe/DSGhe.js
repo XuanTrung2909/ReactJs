@@ -31,7 +31,9 @@ class DSGhe extends Component {
             let classGheDuocChon = ghe.daDat ? 'gheDuocChon' : '';
 
             if(hangGhe!==''){
-                return <button className={`ghe ${classGheDuocChon} ${classGheDangDat}`} key={index}>{ghe.soGhe}</button>
+                return <button className={`ghe ${classGheDuocChon} ${classGheDangDat}`} key={index} onClick={() => {
+                    this.props.chonGhe(ghe)
+                }}>{ghe.soGhe}</button>
             }
             return <button className={`rowNumber ${classGheDuocChon}`} key={index}>{ghe.soGhe}</button>
             
@@ -64,7 +66,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         chonGhe: (ghe) => {
-            console.log(ghe);
+            dispatch({
+                type: 'CHON_GHE',
+                ghe
+            })
         }
     }
 }
