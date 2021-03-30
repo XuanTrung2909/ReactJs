@@ -12,7 +12,14 @@ export const BTDatVeReducer = (state = stateDefault, action) => {
     switch(action.type){
         case 'CHON_GHE': {
             let danhSachGheDangDatCapNhat = [...state.danhSachGheDangDat];
-            danhSachGheDangDatCapNhat.push(action.ghe);
+            let index = danhSachGheDangDatCapNhat.findIndex(gheDD => gheDD.soGhe === action.ghe.soGhe);
+
+            if(index !== -1){
+                danhSachGheDangDatCapNhat.splice(index,1);
+            }else{
+                danhSachGheDangDatCapNhat.push(action.ghe);
+            }
+
             state.danhSachGheDangDat = danhSachGheDangDatCapNhat;
 
             return {...state};
