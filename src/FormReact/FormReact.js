@@ -21,34 +21,32 @@ export default class FormReact extends Component {
     }
 
     handleChangInput = (event) => {
-        let { name, value } = event.target; //event.target la tag input dang xay ra onchange
+        
+        let {name, value} = event.target;
+        let type = event.target.getAttribute('type');
 
-        let typeProps = event.target.getAttribute('typeProps');
-        //tao value moi moi lan nhap lieu
         let newValue = {...this.state.value};
         newValue[name] = value;
-        //tao errors moi moi lan nhap lieu
-        let newErrors = {...this.state.error};
-        let errorMess = '';
-        if(newValue[name] === ''){
-            errorMess = 'khong duoc bor trong';
-        }
 
-        if(typeProps === 'email'){
-            let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
+        let newError = {...this.state.value};
+        let errMess = '';
+
+        if(newValue[name] === ''){
+            errMess = 'Vui lòng nhập giá trị';
+
+        }
+        if (type === 'email'){
+            let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if(!regexEmail.test(value)){
-                newErrors[name] = 'Email khong hop le';
+                errMess = 'Vui lòng nhập đúng giá trị Email';
             }
         }
-        
 
-        newErrors[name] = errorMess;
-
-        //xu ly setState
+        newError[name] = errMess;
 
         this.setState({
-            value:newValue,
-            error: newErrors
+            value: newValue,
+            error: newError
         })
 
     }
@@ -79,7 +77,7 @@ export default class FormReact extends Component {
                                 </div>
                                 <div className="form-group">
                                     <p>Email</p>
-                                    <input typeProps='email' className='form-control' name='email' onChange={this.handleChangInput} />
+                                    <input type='email' className='form-control' name='email' onChange={this.handleChangInput} />
                                     <p className='text text-danger'>{this.state.error.email}</p>
                                 </div>
                             </div>
