@@ -18,6 +18,7 @@ import BTKinh from './Props/BaiTapKinh/BTKinh';
 import BTGHRedux from './DemoRedux/BTGioHangRedux/BTGHRedux';
 import BTDatVe from './DemoRedux/BTDatVe/BTDatVe';
 import FormReact from './FormReact/FormReact';
+import LifeCycle from './LifeCycle/LifeCycle';
 
 function App() {
   return (
@@ -44,7 +45,9 @@ function App() {
 
       {/* <BTDatVe /> */}
 
-      <FormReact />
+      {/* <FormReact /> */}
+
+      <LifeCycle />
 
 
     </div>
